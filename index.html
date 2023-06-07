@@ -6,6 +6,7 @@
     <title>Unity WebGL Player | Bounce Quest</title>
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
   </head>
   <body>
     <div id="unity-container" class="unity-desktop">
@@ -37,6 +38,17 @@
       // Modify or remove this function to customize the visually presented
       // way that non-critical warnings and error messages are presented to the
       // user.
+       function FromUnityToJs ()   // функция вызывается из Unity
+      {
+            alert ("Very good!");
+      }
+      jQuery(document).ready(function($) // страница прогружена
+      {
+
+
+
+      });
+      var unityInstance = UnityLoader.instantiate("unityContainer", "Build/Lesson_build.json", {onProgress: UnityProgress});
       function unityShowBanner(msg, type) {
         function updateBannerVisibility() {
           warningBanner.style.display = warningBanner.children.length ? 'block' : 'none';
@@ -50,7 +62,7 @@
           setTimeout(function() {
             warningBanner.removeChild(div);
             updateBannerVisibility();
-          }, 5000);
+          }, 1000);
         }
         updateBannerVisibility();
       }
